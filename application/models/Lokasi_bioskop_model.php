@@ -9,7 +9,7 @@ class Lokasi_bioskop_model extends CI_Model {
         parent::__construct();
         $this->load->database();
     }              
-                        
+
     public function get_all_lokasi_bioskop()
     {
         $this->db->select('lokasi_bioskop.*, nama_bioskop.nama_bioskop, nama_bioskop.gambar_bioskop');
@@ -19,4 +19,5 @@ class Lokasi_bioskop_model extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }                                    
+
 }

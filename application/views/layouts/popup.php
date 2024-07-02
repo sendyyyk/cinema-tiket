@@ -547,13 +547,15 @@
             <div class="pilih-kursi-filter flex justify-between w-full">
                 <div class="kursi-various flex h-full relative overflow-x-auto">
                     <ul class="inline-flex my-auto" >
+                    <!-- list cinema  -->
                     <?php foreach ($ruangan as $e) : ?>
                         <li class="kursi-list flex overflow-hidden">
                             <button type="button" class="flex w-full h-full rounded-full">
-                                <span><?php echo ($e->nama_ruang); ?></span>
+                                <span><?php echo ($e->id_ruang_bioskop); ?></span>
                             </button>
                         </li>
                     <?php endforeach; ?>
+                    <!-- akhir list cinema -->
                     </ul>
                 </div>
                 <div class="info-kursi flex overflow-hidden">
@@ -614,6 +616,7 @@
         </div>
     </div>
 </div>
+
 <div class="login flex fixed z-30 w-screen h-screen overflow-hidden">
     <button id="close-btn" class="close-btn absolute z-10" type="button">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="style=doutone"> <g id="close"> <path id="vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M6.21991 6.21479C6.51281 5.92189 6.98768 5.92189 7.28057 6.21479L17.7854 16.7196C18.0783 17.0125 18.0783 17.4874 17.7854 17.7803C17.4925 18.0732 17.0177 18.0732 16.7248 17.7803L6.21991 7.27545C5.92702 6.98255 5.92702 6.50768 6.21991 6.21479Z" fill="#ffbf00"></path> <path id="vector (Stroke)_2" fill-rule="evenodd" clip-rule="evenodd" d="M17.7853 6.21479C18.0782 6.50769 18.0782 6.98256 17.7853 7.27545L7.28038 17.7802C6.98749 18.0731 6.51261 18.0731 6.21972 17.7802C5.92683 17.4873 5.92683 17.0124 6.21973 16.7195L16.7247 6.21478C17.0176 5.92189 17.4924 5.9219 17.7853 6.21479Z" fill="#d71515"></path> </g> </g> </g></svg>
@@ -622,6 +625,8 @@
         <div class="login-media h-full">
             <source class="block w-full h-full" src="#" type="png">
         </div>
+
+        <!-- awal form login -->
         <div class="login-form flex h-full">
             <div class="login-center mx-auto my-auto">
                 <div class="login-title flex flex-col justify-between">
@@ -658,6 +663,9 @@
                 </div>
             </div>
         </div>
+        <!-- akhir form login -->
+
+        <!-- awal registrasi -->
         <div class="registrasi-form flex h-full">
             <div class="registrasi-center mx-auto my-auto">
                 <div class="registrasi-title flex flex-col justify-between">
@@ -665,12 +673,12 @@
                     <span>Silahkan registrasi Jika Belum Mempunyai Akun.</span>
                 </div>
                 <div class="registrasi-primary flex">
-                    <form action="">
-                        <input type="text" class="username" placeholder="Masukkan Username">
-                        <input type="text" class="nama-lengkap" placeholder="Masukkan Nama Lengkap">
-                        <input type="text" class="email" placeholder="Masukkan Email">
+                    <form action="<?php echo site_url('login/registrasi'); ?>" method="POST">
+                        <input type="text" class="username" name="username" placeholder="Masukkan Username">
+                        <input type="text" class="nama-lengkap" name="nama" placeholder="Masukkan Nama Lengkap">
+                        <input type="text" class="email" name="email" placeholder="Masukkan Email">
                         <div class="flex flex-col relative w-full">
-                            <input type="password" class="password" placeholder="Masukkan Password">
+                            <input type="password" class="password" name placeholder="Masukkan Password">
                             <span>
                                 <button type="button" class="hide-pswd"></button>
                             </span>
@@ -700,6 +708,9 @@
                 </div>
             </div>
         </div>
+        <!-- akhir registrasi -->
+
+        <!-- awal lupa password -->
         <div class="lupa-pswd-form flex h-full">
             <div class="lupa-pswd-center mx-auto my-auto">
                 <div class="lupa-pswd-title flex flex-col justify-between">
@@ -730,5 +741,6 @@
                 </div>
             </div>
         </div>
+        <!-- akhir lupa password -->
     </div>
 </div>
