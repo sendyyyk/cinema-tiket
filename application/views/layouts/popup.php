@@ -508,20 +508,28 @@
         <!-- pilih bisokop -->
         <div class="pilih-bioskop-body relative w-full h-full  overflow-y-auto">
             <ul class="bioskop-wrap flex flex-wrap w-full">
-            <?php foreach ($lokasi as $e) : ?>
-                <li class="list-bioskop flex flex-col justify-between">
-                    <button type="button" class="picture-pilih-bioskop block relative w-full" aria-disabled="true">
-                        <img src="<?php echo base_url('assets/image-video/image/poster-bioskop/' . $e->gambar_bioskop); ?>" class="w-full h-full" alt="picture-pilih-bioskop">
-                        <div class="pilih-wrap flex flex-col absolute top-0 w-full h-full">
-                            <div class="pilih-circle flex">
-                                <svg class="mx-auto my-auto" width="80%" height="80%" fill="#008000" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#008000" stroke-width="0.072"></g><g id="SVGRepo_iconCarrier"><path class="clr-i-outline clr-i-outline-path-1" d="M13.72,27.69,3.29,17.27a1,1,0,0,1,1.41-1.41l9,9L31.29,7.29a1,1,0,0,1,1.41,1.41Z" stroke="#008000" stroke-width="2"></path><rect x="0" y="0" width="36" height="36" fill-opacity="0"></rect></g></svg>
+                <?php foreach ($lokasi as $e) : ?>
+                    <li class="list-bioskop flex flex-col justify-between">
+                        <!-- Tambahkan data-id-lokasi untuk menampung nilai id_lokasi -->
+                        <button type="button" class="picture-pilih-bioskop block relative w-full" data-id-lokasi="<?php echo $e->id_lokasi; ?>" aria-disabled="true">
+                            <img src="<?php echo base_url('assets/image-video/image/poster-bioskop/' . $e->gambar_bioskop); ?>" class="w-full h-full" alt="picture-pilih-bioskop">
+                            <div class="pilih-wrap flex flex-col absolute top-0 w-full h-full">
+                                <div class="pilih-circle flex">
+                                    <svg class="mx-auto my-auto" width="80%" height="80%" fill="#008000" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#008000" stroke-width="0.072"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path class="clr-i-outline clr-i-outline-path-1" d="M13.72,27.69,3.29,17.27a1,1,0,0,1,1.41-1.41l9,9L31.29,7.29a1,1,0,0,1,1.41,1.41Z" stroke="#008000" stroke-width="2"></path>
+                                            <rect x="0" y="0" width="36" height="36" fill-opacity="0"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <span class="id-lokasi lokasi-bioskop"><?php echo $e->id_lokasi; ?></span>
+                                <span class="id-bioskop" hidden><?php echo $e->nama_bioskop; ?></span>
                             </div>
-                            <span class="id-lokasi lokasi-bioskop"><?php echo ($e->nama_lokasi); ?></span>
-                            <span class="id-bioskop" hidden><?php echo ($e->nama_bioskop); ?></span>
-                        </div>
-                    </button>
-                </li>
-            <?php endforeach; ?>
+                        </button>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </div>
         <div class="pilih-bioskop-btn flex items-center">
@@ -547,15 +555,15 @@
             <div class="pilih-kursi-filter flex justify-between w-full">
                 <div class="kursi-various flex h-full relative overflow-x-auto">
                     <ul class="inline-flex my-auto" >
-                    <!-- list cinema  -->
-                    <?php foreach ($ruangan as $e) : ?>
+                    <!-- List cinema  -->
+                    <?php foreach ($ruangan as $ruang) : ?>
                         <li class="kursi-list flex overflow-hidden">
                             <button type="button" class="flex w-full h-full rounded-full">
-                                <span><?php echo ($e->id_ruang_bioskop); ?></span>
+                                <span><?php echo $ruang->nama_ruang; ?></span>
                             </button>
                         </li>
                     <?php endforeach; ?>
-                    <!-- akhir list cinema -->
+                    <!-- Akhir list cinema -->
                     </ul>
                 </div>
                 <div class="info-kursi flex overflow-hidden">

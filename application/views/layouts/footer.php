@@ -31,5 +31,29 @@
         </footer>
     </div>
     <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.picture-pilih-bioskop').on('click', function() {
+            // Ambil nilai id_lokasi dari button yang diklik
+            var id_lokasi = $(this).data('id-lokasi');
+
+            // Kirim nilai id_lokasi ke controller menggunakan AJAX
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url('home/get_ruangan_by_lokasi'); ?>',
+                data: { id_lokasi: id_lokasi },
+                success: function(response) {
+                    // Tampilkan hasil response jika diperlukan
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
